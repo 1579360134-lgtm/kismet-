@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>虚拟终端 - 缘字诀至臻生态系统</title>
+    <title>kismet</title>
     <style>
         :root {
             --phone-width: 375px;
@@ -218,8 +218,8 @@
         }
 
         /* 微信模块 */
-        .wechat-view { background: #ededed; }
-        .wx-header-bar { height: 46px; background: #ededed; border-bottom: 1px solid #dcdcdc; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; font-size: 16px; font-weight: 500; position: relative; }
+        .wechat-view { background: #f5f5f7; }
+        .wx-header-bar { height: 54px; background: rgba(255,255,255,0.75); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; padding: 0 16px; font-size: 16px; font-weight: 600; color: #1c1c1e; position: relative; letter-spacing: 0.3px; }
         .wx-contacts-master { flex: 1; overflow-y: auto; background: #ffffff; }
         .wx-contact-cell { display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #f2f2f2; cursor: pointer; }
         .wx-contact-avatar { width: 45px; height: 45px; border-radius: 4px; background: #eee; margin-right: 12px; overflow: hidden; }
@@ -229,17 +229,17 @@
         .wx-contact-preview { font-size: 13px; color: #999; margin-top: 2px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 240px; }
 
         /* 微信聊天面板 */
-        .wx-chat-window { position: absolute; top: 54px; left: 0; width: 100%; height: calc(100% - 54px); background: #ededed; display: none; flex-direction: column; z-index: 1100; overflow: hidden; background-size: cover; background-position: center;}
-        .wx-chat-scroller { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+        .wx-chat-window { position: absolute; top: 54px; left: 0; width: 100%; height: calc(100% - 54px); background: linear-gradient(160deg, #f0f4f8 0%, #e8eef5 50%, #f5f0f8 100%); display: none; flex-direction: column; z-index: 1100; overflow: hidden; background-size: cover; background-position: center;}
+        .wx-chat-scroller { flex: 1; overflow-y: auto; padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; position: relative; }
         .wx-message-row { display: flex; gap: 10px; width: 100%; position: relative; align-items: flex-start; }
         .wx-message-row.user-side { justify-content: flex-end; }
         .wx-msg-avatar { width: 40px; height: 40px; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
         .wx-msg-avatar img { width: 100%; height: 100%; object-fit: cover; }
         
         /* 基础消息气泡 */
-        .wx-msg-bubble { max-width: 65%; padding: 10px 12px; border-radius: 4px; font-size: 15px; line-height: 1.4; color: #191919; word-break: break-all; position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05);}
-        .wx-message-row.char-side .wx-msg-bubble { background: #ffffff; }
-        .wx-message-row.user-side .wx-msg-bubble { background: var(--wechat-green); }
+        .wx-msg-bubble { max-width: 65%; padding: 10px 14px; border-radius: 18px; font-size: 14px; line-height: 1.5; color: #1c1c1e; word-break: break-all; position: relative; }
+        .wx-message-row.char-side .wx-msg-bubble { background: rgba(255,255,255,0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.6); border-radius: 4px 18px 18px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .wx-message-row.user-side .wx-msg-bubble { background: rgba(180,210,240,0.65); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.5); border-radius: 18px 4px 18px 18px; box-shadow: 0 2px 8px rgba(100,160,220,0.15); }
 
         .wx-message-row .wx-transfer-wrapper-pure { max-width: 68%; border-radius: 8px; overflow: hidden; }
         .wx-quote-view { font-size: 11px; color: #7f7f7f; border-left: 2px solid #b2b2b2; padding-left: 4px; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -461,7 +461,7 @@
                 <img id="customWidgetPic" class="widget-pic-display" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=180&auto=format&fit=crop">
                 <input type="file" id="widgetImgFileLoader" style="display:none" accept="image/*" onchange="updateWidgetPicture(event)">
             </div>
-            <div class="widget-frame-item glass-blur-card" draggable="true" style="background: linear-gradient(135deg, rgba(212,120,154,0.7), rgba(91,127,166,0.7)); border: 1px solid rgba(255,255,255,0.4);">
+            <div class="widget-frame-item glass-blur-card" draggable="true" style="border: 1px solid rgba(255,255,255,0.4);">
                 <div class="widget-love-wrap" id="loveWidgetInner">
                     <div class="widget-love-label">在一起</div>
                     <div class="flip-clock-row" id="loveFlipRow">
@@ -744,13 +744,12 @@
                 <svg class="ins-svg-icon" viewBox="0 0 24 24" style="stroke: #1c1c1e;"><circle cx="12" cy="12" r="3"></circle><path d="M19 4H5C3.89543 4 3 4.89543 3 6V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V6C21 4.89543 20.1046 4 19 4Z"></path></svg>
             </span>
         </div>
-        <div class="moments-kv" id="momentsKvBg" style="background:#c3cfe2;" onclick="document.getElementById('momentsBgUpload').click()">
+        <div class="moments-kv" id="momentsKvBg" style="background:#c3cfe2;background-size:cover;background-position:center;" onclick="document.getElementById('momentsBgUpload').click()">
             <input type="file" id="momentsBgUpload" style="display:none" accept="image/*" onchange="handleMomentsBgChange(this)">
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:rgba(255,255,255,0.6);font-size:12px;pointer-events:none;">点击更换背景图</div>
             <div class="moments-user-anchor">
                 <div class="moments-user-name" id="momentsAnchorNick">网名</div>
                 <div class="moments-user-avatar" onclick="event.stopPropagation();document.getElementById('momentsAvatarUpload').click()">
-                    <img id="momentsAnchorAvat" src="" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;">
+                    <img id="momentsAnchorAvat" src="" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
                     <input type="file" id="momentsAvatarUpload" style="display:none" accept="image/*" onchange="handleMomentsAvatarChange(this)">
                 </div>
             </div>
@@ -1089,6 +1088,10 @@
     syncTimer();
     loadAllData();
     startLoveWidgetTimer();
+    // 加载数据后全量渲染恢复界面
+    try { renderContactsListView(); } catch(e) {}
+    try { syncProfileToDom(); } catch(e) {}
+    try { restoreMomentsMedia(); } catch(e) {}
     if(localStorage.getItem('apiUrl')) document.getElementById('hubUrl').value = localStorage.getItem('apiUrl');
     if(localStorage.getItem('apiKey')) document.getElementById('hubKey').value = localStorage.getItem('apiKey');
     if(localStorage.getItem('apiModel')) document.getElementById('hubModel').value = localStorage.getItem('apiModel');
@@ -1731,7 +1734,7 @@
             worldBooksDataset.forEach(b => { if(char.boundBooks.includes(b.id)) booksStr += `\n[挂载世界书背景]: ${b.content}`; });
         }
         char.messages.push({ role: 'assistant', content: '同步中...' }); rebuildChatBubbles();
-        let resp = await makeApiCall(`${char.prompt}${booksStr}\n当前宿主资料: ${JSON.stringify(userProfile)}`, char.messages.slice(0, -1));
+        let resp = await makeApiCall(`${char.prompt}${booksStr}\n当前宿主资料: ${JSON.stringify(userProfile)}\n\n【重要回复规则】你是真实人类，用微信聊天方式说话：每次只说1-2句话，绝不长篇大论，像真人发微信一样简短自然，可以分多条发送。`, char.messages.slice(0, -1));
         char.messages.pop(); char.messages.push({ role: 'assistant', content: resp }); rebuildChatBubbles();
         saveAllData();
     }
