@@ -909,6 +909,7 @@
             <div id="fetchModelStatus" style="font-size:11px;color:#888;margin-bottom:8px;min-height:16px;"></div>
             <button class="action-submit-btn" style="margin-top:8px;" onclick="saveApiConfig()">锁定并对接主线芯片</button>
             <button onclick="diagStorage()" style="width:100%;margin-top:10px;padding:11px;background:#888;color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;">🔍 诊断数据存储</button>
+            <button onclick="saveAllData();alert('✅ 数据已手动保存');" style="width:100%;margin-top:8px;padding:11px;background:#d4789a;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">💾 手动保存所有数据</button>
             <div style="margin-top:20px;padding-top:16px;border-top:1px solid #e5e5ea;">
                 <div style="font-size:13px;color:#666;margin-bottom:10px;">数据备份</div>
                 <div style="display:flex;gap:10px;">
@@ -1950,6 +1951,8 @@
     function blurChatControls() { document.getElementById('bubbleContextMenu').style.display = 'none'; }
 
     syncProfileToDom();
+    try { renderContactsListView(); } catch(e) {}
+    window.addEventListener('beforeunload', function() { saveAllData(); });
 </script>
 </body>
 </html>
